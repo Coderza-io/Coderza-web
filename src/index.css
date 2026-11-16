@@ -1,0 +1,114 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Manrope", system-ui, -apple-system, sans-serif;
+  --font-sans: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  --color-plum: #17101F;
+  --color-surface: #241A2E;
+  --color-purple-mid: #30203D;
+  --color-lime: #C9F466;
+  --color-ink-light: #F7F6F3;
+  --color-muted: #BDB6C7;
+  --color-sage: #E7EBE3;
+  --color-ink-dark: #151817;
+}
+
+@layer base {
+  html {
+    font-family: var(--font-sans);
+    background-color: #17101F;
+    color: #F7F6F3;
+    scroll-behavior: smooth;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    text-wrap: balance;
+  }
+
+  a:focus-visible,
+  button:focus-visible,
+  input:focus-visible,
+  select:focus-visible,
+  textarea:focus-visible {
+    outline: 2px solid #C9F466;
+    outline-offset: 2px;
+  }
+}
+
+.bg-coderza-grid {
+  background-image:
+    linear-gradient(to right, rgba(247, 246, 243, 0.045) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(247, 246, 243, 0.045) 1px, transparent 1px);
+  background-size: 56px 56px;
+}
+
+.bg-coderza-hero-grid {
+  background-image:
+    linear-gradient(to right, rgba(247, 246, 243, 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(247, 246, 243, 0.06) 1px, transparent 1px);
+  background-size: 56px 56px;
+  -webkit-mask-image: radial-gradient(
+    ellipse 86% 80% at 62% 48%,
+    rgba(0, 0, 0, 0.95) 20%,
+    rgba(0, 0, 0, 0.45) 62%,
+    rgba(0, 0, 0, 0) 96%
+  );
+  mask-image: radial-gradient(
+    ellipse 86% 80% at 62% 48%,
+    rgba(0, 0, 0, 0.95) 20%,
+    rgba(0, 0, 0, 0.45) 62%,
+    rgba(0, 0, 0, 0) 96%
+  );
+}
+
+.bg-coderza-grid-light {
+  background-image:
+    linear-gradient(to right, rgba(21, 24, 23, 0.055) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(21, 24, 23, 0.055) 1px, transparent 1px);
+  background-size: 56px 56px;
+}
+
+@keyframes coderza-marquee {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.animate-coderza-marquee {
+  animation: coderza-marquee 40s linear infinite;
+  will-change: transform;
+}
+
+.mask-marquee-edges {
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 10%,
+    black 90%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 10%,
+    black 90%,
+    transparent 100%
+  );
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
