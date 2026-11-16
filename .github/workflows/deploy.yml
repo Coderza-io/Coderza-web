@@ -27,18 +27,15 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 22
-          cache: npm
 
       - name: Install dependencies
-        run: npm install
+        run: npm install --legacy-peer-deps
 
       - name: Typecheck
         run: npm run lint
 
       - name: Build production bundle for GitHub Pages
         env:
-          # Automatically sets /Coderza-web/ when deployed under github.io/Coderza-web/
-          # If you later attach a custom root domain (e.g. coderza.lk), change this to '/'
           VITE_BASE_PATH: /${{ github.event.repository.name }}/
         run: |
           npm run build
